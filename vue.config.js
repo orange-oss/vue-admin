@@ -1,11 +1,22 @@
+const path = require("path");
+const target = "http://yuenov.com:15555";
+
+function resolve(dir) {
+    return path.join(__dirname, dir);
+}
+
 module.exports = {
+    chainWebpack: (config) => {
+        config.resolve.alias.set("@", resolve("src"));
+    },
     configureWebpack: {
-        // provide the app's title in webpack's name field, so that
-        // it can be accessed in index.html to inject the correct title.
-        name: name,
-        resolve: {
-            alias: {
-                "@": resolve("src"),
+        devServer: {
+            // 配置跨域
+            proxy: {
+                "/app/open/api": {
+                    target,
+                    changeOrigin: true, //是否跨域
+                },
             },
         },
     },

@@ -1,13 +1,22 @@
 <template>
     <div>
         <el-table :data="tableData" style="width: 100%">
-            <el-table-column prop="rankName" label="店铺名称" width="180">
+            <el-table-column prop="categoryName" label="店铺名称" width="180">
             </el-table-column>
-            <el-table-column prop="rankId" label="店铺地址" width="180">
+            <el-table-column prop="categoryId" label="店铺地址" width="180">
             </el-table-column>
-            <el-table-column prop="coverImgs" label="店铺介绍">
-            </el-table-column>
+            <!-- <el-table-column prop="word" label="店铺介绍"> </el-table-column> -->
         </el-table>
+        <el-pagination
+            background
+            layout="prev, pager, next"
+            :total="total"
+            :page-size="pageCount"
+            :current-page="currentPage"
+            :pager-count="5"
+            @current-change="handleChange"
+        >
+        </el-pagination>
     </div>
 </template>
 
@@ -17,78 +26,10 @@ export default {
     name: "ShopList",
     data() {
         return {
-            tableData: [
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-                {
-                    name: "蜜雪冰城",
-                    address: "上海市普陀区金沙江路 1518 弄",
-                    info: "蜜雪冰城，夏季新品，欢迎品尝！",
-                },
-            ],
+            tableData: [],
+            currentPage: 1,
+            pageCount: 2,
+            total: 0,
         };
     },
     created() {
@@ -96,14 +37,20 @@ export default {
     },
     methods: {
         loadShopList() {
-            shopApi.list().then((res) => {
-                if (res.result.code === 0) {
-                    console.log(res.data.channels[0].ranks);
-                    this.tableData = res.data.channels[0].ranks;
-                } else {
-                    console.log(res.result.msg);
-                }
+            const param = {
+                pageNum: this.currentPage,
+                pageSize: this.pageCount,
+            };
+            shopApi.list(param).then((data) => {
+                this.tableData = data.list;
+                this.total = data.total;
             });
+        },
+
+        // 拿到当前点击得页数
+        handleChange(val) {
+            this.currentPage = val;
+            this.loadShopList();
         },
     },
 };

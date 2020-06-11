@@ -11,4 +11,19 @@ const C_API = {
     TIMEOUT: 15000,
 };
 
-export default C_API;
+const C_RESP = {
+    ERR_HTTP_BAD_REQUEST: 400,
+    ERR_HTTP_SESSION_TIMEOUT: 401,
+    ERR_HTTP_FORBIDDEN: 403,
+    ERR_HTTP_NOT_FOUND: 404,
+    ERR_HTTP_NOT_ALLOWED: 405,
+    ERR_HTTP_SERVER_ERROR: 500,
+    ERR_HTTP_BAD_GATEWAY: 502,
+    ERR_UNKNOWN: -9999,
+    OK: 0,
+};
+
+export default {
+    ...C_API,
+    ...C_RESP,
+};

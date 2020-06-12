@@ -6,6 +6,8 @@ import Layout from "../layout/index.vue";
 import Home from "../page/Home.vue";
 // 左侧菜单 商家管理 商家列表部分
 import ShopList from "../page/shop/ShopList.vue";
+// 左侧菜单 商家管理 商家列表 商家详情部分
+import ShopDetail from "../page/shop/ShopDetail.vue";
 // 左侧菜单 商家管理 商家信息部分
 import ShopInfo from "@/page/shop/ShopInfo.vue";
 // 头部菜单 人员信息部分
@@ -31,15 +33,21 @@ const routes = [
     },
     // 商家管理
     {
-        path: '/shop',
+        path: "/shop",
         component: Layout,
-        redirect: '/shop/list',
+        redirect: "/shop/list",
         meta: { title: "商家管理" },
         children: [
             {
                 path: "list",
                 component: ShopList,
                 meta: { title: "商家列表" },
+            },
+            {
+                name: "ShopDetail",
+                path: "detail",
+                component: ShopDetail,
+                meta: { title: "商家详情" },
             },
             {
                 path: "info",

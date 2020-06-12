@@ -18,6 +18,12 @@ import {
     Table,
     TableColumn,
     Pagination,
+    Input,
+    Button,
+    Select,
+    Option,
+    Form,
+    FormItem,
 } from "element-ui";
 // import "element-ui/lib/theme-chalk/index.css";
 Vue.use(Container);
@@ -34,6 +40,12 @@ Vue.use(BreadcrumbItem);
 Vue.use(Table);
 Vue.use(TableColumn);
 Vue.use(Pagination);
+Vue.use(Input);
+Vue.use(Button);
+Vue.use(Select);
+Vue.use(Option);
+Vue.use(Form);
+Vue.use(FormItem);
 
 Vue.prototype.$api = api; // 将api挂载到vue的原型上
 Vue.config.productionTip = false;

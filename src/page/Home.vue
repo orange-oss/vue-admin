@@ -1,14 +1,13 @@
 <template>
-    <div class="home">首页</div>
+    <div class="home">
+        <div>首页</div>
+    </div>
 </template>
 
 <script>
 export default {
-    name: "Home",
-    // components: {
-    //   HelloWorld
-    // }
-};
+    name: 'Home'
+}
 </script>
 <style lang="less" scoped>
 .home {

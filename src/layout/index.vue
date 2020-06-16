@@ -8,12 +8,12 @@
             <el-container>
                 <header>
                     <!-- 头部logo部分组件 -->
-                    <div class="head-box"></div>
+                    <HeadLogo></HeadLogo>
                     <div class="nav-box">
                         <!-- 头部左侧面包屑 -->
                         <Breadcrumb class="breadcrumb-box"></Breadcrumb>
                         <!-- 头部导航组件 -->
-                        <Navbar class="navbar-box"></Navbar>
+                        <!-- <Navbar class="navbar-box"></Navbar> -->
                     </div>
                 </header>
                 <el-main class="content-box">
@@ -28,47 +28,44 @@
 </template>
 
 <script>
-import Sidebar from "../components/common/Sidebar";
-import Breadcrumb from "../components/common/Breadcrumb";
-import Navbar from "../components/common/Navbar";
+import Sidebar from '../components/common/Sidebar'
+import HeadLogo from '../components/common/HeadLogo'
+import Breadcrumb from '../components/common/Breadcrumb'
+// import Navbar from "../components/common/Navbar";
 export default {
-    name: "Layout",
+    name: 'Layout',
     data() {
-        return {};
+        return {}
     },
     components: {
         Sidebar,
-        Breadcrumb,
-        Navbar,
-    },
-};
+        HeadLogo,
+        Breadcrumb
+        // Navbar,
+    }
+}
 </script>
 
 <style lang="less" scoped>
+@import '../theme/base.less';
+
 .el-main {
     background-color: #e9eef3;
 }
 
 // 侧边栏导航
+
 .sidebar-box {
-    background-color: #324157;
+    background-color: @baseColor;
     min-height: 100%;
-    // max-height: 100%;
     height: 100vh;
 }
-// 头部logo 部分
-.head-box {
-    height: 60px;
-    background-color: #324157;
-}
+
 // 头部导航和面包屑部分
 .nav-box {
+    height: 70px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-}
-.breadcrumb-box {
-    line-height: 90px;
 }
 // 内容
 .content-box {

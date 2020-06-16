@@ -1,15 +1,21 @@
 <template>
-    <el-menu>
-        <div v-for="(item, index) in list" :key="index">
-            <el-menu-item :index="item.name" v-if="!item.children">
-                <router-link :to="resolvePath(item.path)">
+    <el-menu
+        class="menu-box"
+        background-color="#545c64"
+        text-color="#fff"
+        active-text-color="#409EFF"
+        :default-active="activeMenu"
+    >
+        <div v-for="item in list" :key="item.path">
+            <router-link :to="resolvePath(item.path)" v-if="!item.children">
+                <el-menu-item :index="item.name">
                     <!-- 如果菜单栏中有icon就显示，没有就不显示 -->
                     <i :class="item.icon" v-if="item.icon"></i>
                     <span>{{ item.name }}</span>
-                </router-link>
-            </el-menu-item>
+                </el-menu-item>
+            </router-link>
 
-            <el-submenu :index="item.name" v-if="item.children">
+            <el-submenu :index="item.name" v-else>
                 <template slot="title">
                     <i :class="item.icon" v-if="item.icon"></i>
                     <span>{{ item.name }}</span>
@@ -36,50 +42,57 @@
  * @param isLeaf   → 判断是否是菜单中的叶子节点(即最后一个孩子)
  */
 
-import path from 'path';
-import { isExternal } from '@/utils/validates.js';
-import sidebarMenu from '@/config/menu.js';
+import path from 'path'
+import { isExternal } from '@/utils/validates.js'
+import sidebarMenu from '@/config/menu.js'
 export default {
     name: 'Sidebar',
     props: {
         menuList: {
             type: Array,
-            default: null,
+            default: null
         },
         isLeaf: {
             type: Boolean,
-            default: null,
+            default: null
         },
         basePath: {
             type: String,
-            default: '',
-        },
+            default: ''
+        }
     },
     data() {
-        return {};
+        return {
+            activeMenu: '1'
+        }
     },
     mounted() {},
     computed: {
         list() {
             if (!this.menuList && !this.isLeaf) {
-                return sidebarMenu;
+                return sidebarMenu
             }
-            return this.menuList || null;
-        },
+            return this.menuList || null
+        }
+        // activeMenu() {
+        //     const route = this.$route;
+        //     const { path } = route;
+        //     return path;
+        // },
     },
     methods: {
         // 拼接路径
         resolvePath(routePath) {
             if (isExternal(routePath)) {
-                return routePath;
+                return routePath
             }
             if (isExternal(this.basePath)) {
-                return this.basePath;
+                return this.basePath
             }
-            return path.resolve(this.basePath, routePath);
-        },
-    },
-};
+            return path.resolve(this.basePath, routePath)
+        }
+    }
+}
 </script>
 
 <style lang="less" scoped></style>

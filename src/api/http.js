@@ -1,6 +1,5 @@
 import axios from "axios";
 import store from "@/store/index.js";
-// import QS from "qs"; // 引入qs模块，用来序列化post类型的数据，后面会提到
 import C from "@/common/constants.js";
 // element-ui的message提示框组件，大家可根据自己的ui组件更改。
 import { Message } from "element-ui";

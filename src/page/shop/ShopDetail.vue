@@ -19,18 +19,18 @@
 
 <script>
 export default {
-    name: "ShopDetail",
+    name: 'ShopDetail',
     data() {
         return {
             form: {
                 name: this.$route.query.categoryName,
                 address: this.$route.query.categoryId,
-                introduce: this.$route.query.cover,
-            },
-        };
+                introduce: this.$route.query.cover
+            }
+        }
     },
-    created() {},
-};
+    created() {}
+}
 </script>
 
 <style lang="less" scoped>

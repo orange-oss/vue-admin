@@ -60,9 +60,9 @@
 </template>
 
 <script>
-import shopApi from "@/api/shop.js";
+import shopApi from '@/api/shop.js'
 export default {
-    name: "ShopList",
+    name: 'ShopList',
     data() {
         return {
             // 当前点击页
@@ -70,31 +70,31 @@ export default {
             // 一页几条数据
             pageCount: 2,
             // 筛选下拉框部分
-            searchSelect: "",
+            searchSelect: '',
             // 输入搜索框部分
-            searchText: "",
+            searchText: '',
             // 表格数据
             tableData: [
                 {
-                    categoryName: "门店1",
-                    categoryId: "id1",
+                    categoryName: '门店1',
+                    categoryId: 'id1',
                     cover:
-                        "http://t9.baidu.com/it/u=1307125826,3433407105&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg",
+                        'http://t9.baidu.com/it/u=1307125826,3433407105&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg'
                 },
                 {
-                    categoryName: "门店2",
-                    categoryId: "id2",
+                    categoryName: '门店2',
+                    categoryId: 'id2',
                     cover:
-                        "http://t9.baidu.com/it/u=1307125826,3433407105&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg",
-                },
+                        'http://t9.baidu.com/it/u=1307125826,3433407105&fm=79&app=86&size=h300&n=0&g=4n&f=jpeg'
+                }
             ],
             // 一共多少条
             total: 0,
             // 搜索的内容
-            search: "",
+            search: '',
             // 定义一个空对象 有参数就累加
-            filter: {},
-        };
+            filter: {}
+        }
     },
     created() {
         // this.loadShopList();
@@ -104,44 +104,44 @@ export default {
         loadShopList(objParam = {}) {
             const param = {
                 pageNum: this.currentPage,
-                pageSize: this.pageCount,
-            };
-            Object.assign(param, objParam);
-            shopApi.list(param).then((data) => {
-                this.tableData = data.list;
-                this.total = data.total;
-            });
+                pageSize: this.pageCount
+            }
+            Object.assign(param, objParam)
+            shopApi.list(param).then(data => {
+                this.tableData = data.list
+                this.total = data.total
+            })
         },
 
         // 拿到当前点击的页数
         handleChange(value) {
-            this.currentPage = value;
-            this.loadShopList();
+            this.currentPage = value
+            this.loadShopList()
         },
 
         // 表格头部 选择下拉框部分
         changeSelect() {
-            Object.assign(this.filter, { searchSelect: this.searchSelect });
-            this.loadShopList(this.filter);
+            Object.assign(this.filter, { searchSelect: this.searchSelect })
+            this.loadShopList(this.filter)
         },
 
         // 表格头部 搜索部分
         searchBtn() {
-            Object.assign(this.filter, { keyWord: this.searchText });
-            this.loadShopList(this.filter);
+            Object.assign(this.filter, { keyWord: this.searchText })
+            this.loadShopList(this.filter)
         },
 
         // 操作部分逻辑
         // 点击编辑
         handleEdit(index, row) {
-            console.log(index, row);
+            console.log(index, row)
             this.$router.push({
-                name: "ShopDetail",
-                query: this.tableData[index],
-            });
-        },
-    },
-};
+                name: 'ShopDetail',
+                query: this.tableData[index]
+            })
+        }
+    }
+}
 </script>
 
 <style lang="less" scoped>

@@ -20,34 +20,34 @@
 // @param breadList → router中的路由配置
  */
 export default {
-    name: "Breadcrumb",
+    name: 'Breadcrumb',
     data() {
         return {
-            breadList: null,
-        };
+            breadList: null
+        }
     },
     watch: {
         $route() {
-            this.getBreadcrumb();
-        },
+            this.getBreadcrumb()
+        }
     },
     created() {
-        this.getBreadcrumb();
+        this.getBreadcrumb()
     },
     methods: {
         // 获取路由配置array
         getBreadcrumb() {
             this.breadList = this.$route.matched.filter(
-                (item) => item.meta && item.meta.title
-            );
+                item => item.meta && item.meta.title
+            )
         },
         // 点击面包屑实现路由跳转
         handleLink(item) {
-            const { path } = item;
-            this.$router.push(path);
-        },
-    },
-};
+            const { path } = item
+            this.$router.push(path)
+        }
+    }
+}
 </script>
 
 <style lang="less" scoped>

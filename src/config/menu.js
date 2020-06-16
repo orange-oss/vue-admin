@@ -23,10 +23,12 @@ const sidebarMenu = [
             {
                 path: "list",
                 name: "商家列表",
+                icon: "el-icon-s-data",
             },
             {
                 path: "info",
                 name: "商家信息",
+                icon: "el-icon-sell",
             },
         ],
     },

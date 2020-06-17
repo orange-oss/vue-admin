@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bread-crumb">
         <el-breadcrumb separator="/">
             <el-breadcrumb-item v-for="item in breadList" :key="item.index">
                 <span
@@ -53,5 +53,8 @@ export default {
 <style lang="less" scoped>
 .bread-title {
     cursor: pointer;
+}
+.bread-crumb {
+    padding: 0 30px;
 }
 </style>

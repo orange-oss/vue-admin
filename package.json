@@ -6,7 +6,7 @@
         "dev": "cross-env NODE_ENV=DEV vue-cli-service serve --open",
         "debug": "cross-env NODE_ENV=DEBUG vue-cli-service serve --open",
         "test": "cross-env NODE_ENV=TEST vue-cli-service serve --open",
-        "build": "cross-env NODE_ENV=PROD vue-cli-service serve --open",
+        "build": "cross-env NODE_ENV=PROD vue-cli-service build",
         "lint": "vue-cli-service lint"
     },
     "dependencies": {

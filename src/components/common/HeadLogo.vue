@@ -1,6 +1,7 @@
 <template>
     <div class="head-box">
         <span>欢迎您 , {{ userName }}</span>
+        <i class="el-icon-user-solid"></i>
         <span class="sign-out" @click="logOut">退出</span>
     </div>
 </template>
@@ -28,10 +29,15 @@ export default {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding: 0 20px;
+    .el-icon-user-solid {
+        margin-left: 10px;
+        font-size: 20px;
+    }
     .sign-out {
         cursor: pointer;
         color: #007cf9;
-        margin-left: 20px;
+        margin-left: 10px;
     }
 }
 </style>

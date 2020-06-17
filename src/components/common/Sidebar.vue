@@ -74,11 +74,6 @@ export default {
             }
             return this.menuList || null
         }
-        // activeMenu() {
-        //     const route = this.$route;
-        //     const { path } = route;
-        //     return path;
-        // },
     },
     methods: {
         // 拼接路径

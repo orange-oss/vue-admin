@@ -11,9 +11,7 @@
                     <HeadLogo></HeadLogo>
                     <div class="nav-box">
                         <!-- 头部左侧面包屑 -->
-                        <Breadcrumb class="breadcrumb-box"></Breadcrumb>
-                        <!-- 头部导航组件 -->
-                        <!-- <Navbar class="navbar-box"></Navbar> -->
+                        <Breadcrumb></Breadcrumb>
                     </div>
                 </header>
                 <el-main class="content-box">
@@ -28,10 +26,9 @@
 </template>
 
 <script>
-import Sidebar from '../components/common/Sidebar'
+import Sidebar from '../components/common/Sidebar/index'
 import HeadLogo from '../components/common/HeadLogo'
 import Breadcrumb from '../components/common/Breadcrumb'
-// import Navbar from "../components/common/Navbar";
 export default {
     name: 'Layout',
     data() {
@@ -41,7 +38,6 @@ export default {
         Sidebar,
         HeadLogo,
         Breadcrumb
-        // Navbar,
     }
 }
 </script>

@@ -16,42 +16,23 @@ const sidebarMenu = [
         show: true, // 是否显示此菜单 默认是true
     },
     {
-        path: "/shop",
-        name: "商家管理",
+        path: "/banner",
+        name: "海报管理",
         icon: "el-icon-film",
         children: [
             {
                 path: "list",
-                name: "商家列表",
+                name: "海报列表",
                 icon: "el-icon-s-data",
             },
             {
                 path: "info",
-                name: "商家信息",
+                name: "添加海报",
                 icon: "el-icon-sell",
             },
         ],
     },
 ];
-// 定义头部菜单栏navbar菜单
-const navbarMenu = [
-    {
-        path: "/message", // route时url中的值
-        name: "人员信息", // 在菜单中显示的名称
-        icon: "el-icon-menu", // 图标是可选的
-        show: true, // 是否显示此菜单 默认是true
-    },
-    {
-        path: "/order",
-        name: "订单管理",
-        icon: "el-icon-film",
-        children: [
-            {
-                path: "list",
-                name: "订单列表",
-            },
-        ],
-    },
-];
+
 export default sidebarMenu;
-export { navbarMenu };
+

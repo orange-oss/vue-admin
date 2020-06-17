@@ -1,8 +1,8 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import api from "./api/shop.js";
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router'
+import store from './store'
+import api from './api/shop.js'
 import {
     Container,
     Header,
@@ -26,36 +26,38 @@ import {
     FormItem,
     Dialog,
     Upload,
-} from "element-ui";
+    Checkbox,
+} from 'element-ui'
 // import "element-ui/lib/theme-chalk/index.css";
-Vue.use(Container);
-Vue.use(Header);
-Vue.use(Aside);
-Vue.use(Main);
-Vue.use(Footer);
-Vue.use(Menu);
-Vue.use(Submenu);
-Vue.use(MenuItem);
-Vue.use(MenuItemGroup);
-Vue.use(Breadcrumb);
-Vue.use(BreadcrumbItem);
-Vue.use(Table);
-Vue.use(TableColumn);
-Vue.use(Pagination);
-Vue.use(Input);
-Vue.use(Button);
-Vue.use(Select);
-Vue.use(Option);
-Vue.use(Form);
-Vue.use(FormItem);
-Vue.use(Dialog);
-Vue.use(Upload);
+Vue.use(Container)
+Vue.use(Header)
+Vue.use(Aside)
+Vue.use(Main)
+Vue.use(Footer)
+Vue.use(Menu)
+Vue.use(Submenu)
+Vue.use(MenuItem)
+Vue.use(MenuItemGroup)
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Pagination)
+Vue.use(Input)
+Vue.use(Button)
+Vue.use(Select)
+Vue.use(Option)
+Vue.use(Form)
+Vue.use(FormItem)
+Vue.use(Dialog)
+Vue.use(Upload)
+Vue.use(Checkbox)
 
-Vue.prototype.$api = api; // 将api挂载到vue的原型上
-Vue.config.productionTip = false;
+Vue.prototype.$api = api // 将api挂载到vue的原型上
+Vue.config.productionTip = false
 
 new Vue({
     router,
     store,
-    render: (h) => h(App),
-}).$mount("#app");
+    render: h => h(App)
+}).$mount('#app')

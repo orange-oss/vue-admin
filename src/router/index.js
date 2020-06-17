@@ -1,39 +1,40 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '@/page/Login.vue'
+// import Login from '@/page/Login.vue'
 // 公共侧边栏+头部+底部
-import Layout from '../layout/index.vue'
+// import Layout from '@/layout/index.vue'
 // 首页部分
-import Home from '../page/Home.vue'
+// import Home from '@/page/Home.vue'
 // 左侧菜单 商家管理 商家列表部分
-import ShopList from '../page/shop/ShopList.vue'
+// import ShopList from '../page/shop/ShopList.vue'
 // 左侧菜单 商家管理 商家列表 商家详情部分
-import ShopDetail from '../page/shop/ShopDetail.vue'
+// import ShopDetail from '../page/shop/ShopDetail.vue'
 // 左侧菜单 商家管理 商家信息部分
-import ShopInfo from '@/page/shop/ShopInfo.vue'
+// import ShopInfo from '@/page/shop/ShopInfo.vue'
 // 头部菜单 人员信息部分
-import Message from '../page/message/index.vue'
+// import Message from '../page/message/index.vue'
 // 头部菜单 订单管理 订单列表部分
-import OrderList from '../page/order/OrderList.vue'
+// import OrderList from '../page/order/OrderList.vue'
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/login',
-        component: Login,
+        // component: Login,
+        component: () => import('@/page/Login.vue'),
         name: 'Login'
     },
     // 左侧导航栏sidebar部分
     // 首页
     {
         path: '/',
-        component: Layout,
+        component: () => import('@/layout/index.vue'),
         redirect: '/home',
         children: [
             {
                 path: 'home',
                 name: 'Home',
-                component: Home,
+                component: () => import('@/page/Home.vue'),
                 meta: { title: '首页' }
             }
         ]
@@ -41,24 +42,24 @@ const routes = [
     // 商家管理
     {
         path: '/shop',
-        component: Layout,
+        component: () => import('@/layout/index.vue'),
         redirect: '/shop/list',
         meta: { title: '商家管理' },
         children: [
             {
                 path: 'list',
-                component: ShopList,
+                component: () => import('@/page/shop/ShopList.vue'),
                 meta: { title: '商家列表' }
             },
             {
                 name: 'ShopDetail',
                 path: 'detail',
-                component: ShopDetail,
+                component: () => import('@/page/shop/ShopDetail.vue'),
                 meta: { title: '商家详情' }
             },
             {
                 path: 'info',
-                component: ShopInfo,
+                component: () => import('@/page/shop/ShopInfo.vue'),
                 meta: { title: '商家信息' }
             }
         ]
@@ -67,11 +68,11 @@ const routes = [
     // 人员信息
     {
         path: '/message',
-        component: Layout,
+        component: () => import('@/layout/index.vue'),
         children: [
             {
                 path: '/message',
-                component: Message,
+                component: () => import('@/page/message/index.vue'),
                 meta: { title: '人员信息' }
             }
         ]
@@ -79,13 +80,13 @@ const routes = [
     // 订单管理
     {
         path: '/order',
-        component: Layout,
+        component: () => import('@/layout/index.vue'),
         redirect: '/order/list',
         meta: { title: '订单管理' },
         children: [
             {
                 path: 'list',
-                component: OrderList,
+                component: () => import('@/page/order/OrderList.vue'),
                 meta: { title: '订单列表' }
             }
         ]

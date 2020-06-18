@@ -6,7 +6,7 @@ const routes = [
     {
         path: '/login',
         component: () =>
-            import(/*webpackChunkName: "login"*/ '@/page/Login.vue'),
+            import(/*webpackChunkName: "login"*/ '@/page/login/index.vue'),
         name: 'Login'
     },
     // 左侧导航栏sidebar部分
@@ -21,7 +21,9 @@ const routes = [
                 path: 'home',
                 name: 'Home',
                 component: () =>
-                    import(/*webpackChunkName: "home"*/ '@/page/Home.vue'),
+                    import(
+                        /*webpackChunkName: "home"*/ '@/page/home/index.vue'
+                    ),
                 meta: { title: '首页' }
             }
         ]
@@ -42,13 +44,13 @@ const routes = [
                 meta: { title: '海报列表' }
             },
             {
-                name: 'BannerDetail',
                 path: 'detail',
+                name: 'BannerDetail',
                 component: () =>
                     import(
-                        /*webpackChunkName: "detail"*/ '@/page/banner/BannerDetail.vue'
+                        /*webpackChunkName: "list"*/ '@/page/banner/BannerDetail.vue'
                     ),
-                meta: { title: '海报详情' }
+                meta: { title: '海报列表' }
             },
             {
                 path: 'info',
@@ -57,6 +59,31 @@ const routes = [
                         /*webpackChunkName: "info"*/ '@/page/banner/BannerInfo.vue'
                     ),
                 meta: { title: '添加海报' }
+            }
+        ]
+    },
+    // 图表管理
+    {
+        path: '/chart',
+        component: () => import('@/layout/index.vue'),
+        redirect: '/chart/chart',
+        meta: { title: '图表管理' },
+        children: [
+            {
+                path: 'chart',
+                component: () =>
+                    import(
+                        /*webpackChunkName: "chart"*/ '@/page/chart/Chart.vue'
+                    ),
+                meta: { title: '折线图' }
+            },
+            {
+                path: 'editor',
+                component: () =>
+                    import(
+                        /*webpackChunkName: "editor"*/ '@/page/chart/Editor.vue'
+                    ),
+                meta: { title: '富文本编辑器' }
             }
         ]
     }

@@ -2,7 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import api from './api/shop.js'
+
 import {
     Container,
     Header,
@@ -26,7 +26,7 @@ import {
     FormItem,
     Dialog,
     Upload,
-    Checkbox,
+    Checkbox
 } from 'element-ui'
 // import "element-ui/lib/theme-chalk/index.css";
 Vue.use(Container)
@@ -53,7 +53,6 @@ Vue.use(Dialog)
 Vue.use(Upload)
 Vue.use(Checkbox)
 
-Vue.prototype.$api = api // 将api挂载到vue的原型上
 Vue.config.productionTip = false
 
 new Vue({

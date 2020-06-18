@@ -32,6 +32,23 @@ const sidebarMenu = [
             },
         ],
     },
+    {
+        path: "/chart",
+        name: "图表管理",
+        icon: "el-icon-film",
+        children: [
+            {
+                path: "chart",
+                name: "折线图",
+                icon: "el-icon-s-data",
+            },
+            {
+                path: "editor",
+                name: "富文本编辑器",
+                icon: "el-icon-sell",
+            },
+        ],
+    },
 ];
 
 export default sidebarMenu;

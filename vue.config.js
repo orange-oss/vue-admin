@@ -10,6 +10,7 @@ module.exports = {
     // 打包路径
     outputDir: 'dist',
     assetsDir: 'static',
+    filenameHashing: true,
     chainWebpack: config => {
         config.resolve.alias.set('@', resolve('src'))
         config.when(process.env.NODE_ENV !== 'DEV', config => {
@@ -55,7 +56,7 @@ module.exports = {
             proxy: {
                 '/app/open/api': {
                     target,
-                    changeOrigin: true //是否跨域
+                    changeOrigin: false //是否跨域
                 }
             }
         }

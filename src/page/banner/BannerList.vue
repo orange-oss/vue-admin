@@ -97,7 +97,7 @@ export default {
         }
     },
     created() {
-        // this.loadShopList();
+        this.loadShopList();
     },
     methods: {
         // 分页渲染接口
@@ -136,7 +136,7 @@ export default {
         handleEdit(index, row) {
             console.log(index, row)
             this.$router.push({
-                name: 'ShopDetail',
+                name: 'BannerDetail',
                 query: this.tableData[index]
             })
         }

@@ -55,6 +55,6 @@ export default {
     cursor: pointer;
 }
 .bread-crumb {
-    padding: 0 30px;
+    padding: 0 20px;
 }
 </style>

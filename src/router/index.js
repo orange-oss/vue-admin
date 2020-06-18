@@ -5,15 +5,16 @@ Vue.use(VueRouter)
 const routes = [
     {
         path: '/login',
-        // component: Login,
-        component: () => import('@/page/Login.vue'),
+        component: () =>
+            import(/*webpackChunkName: "login"*/ '@/page/Login.vue'),
         name: 'Login'
     },
     // 左侧导航栏sidebar部分
     // 首页
     {
         path: '/',
-        component: () => import('@/layout/index.vue'),
+        component: () =>
+            import(/*webpackChunkName: "indexpage"*/ '@/layout/index.vue'),
         redirect: '/home',
         children: [
             {

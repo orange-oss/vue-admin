@@ -1,12 +1,19 @@
 <template>
     <div>
-        富文本编辑器
+        <div id="editorElem"></div>
     </div>
 </template>
 
 <script>
+import E from 'wangeditor'
 export default {
-    name: 'Editor'
+    name: 'Editor',
+    mounted() {
+        const editor = new E('#editorElem')
+        // 上传图片到服务器
+        editor.customConfig.uploadImgServer = '/upload'
+        editor.create()
+    }
 }
 </script>
 

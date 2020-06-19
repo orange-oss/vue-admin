@@ -6,7 +6,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-    publicPath: '/',
+    publicPath: './',
     // 打包路径
     outputDir: 'dist',
     assetsDir: 'static',

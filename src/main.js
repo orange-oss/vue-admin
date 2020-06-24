@@ -26,7 +26,8 @@ import {
     FormItem,
     Dialog,
     Upload,
-    Checkbox
+    Checkbox,
+    Link,
 } from 'element-ui'
 // import "element-ui/lib/theme-chalk/index.css";
 Vue.use(Container)
@@ -52,6 +53,7 @@ Vue.use(FormItem)
 Vue.use(Dialog)
 Vue.use(Upload)
 Vue.use(Checkbox)
+Vue.use(Link)
 
 Vue.config.productionTip = false
 

@@ -30,6 +30,11 @@ const sidebarMenu = [
                 name: "添加海报",
                 icon: "el-icon-sell",
             },
+            {
+                path: "down",
+                name: "下载海报",
+                icon: "el-icon-download",
+            },
         ],
     },
     {

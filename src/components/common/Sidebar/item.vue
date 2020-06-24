@@ -16,7 +16,7 @@
             <menu-item
                 v-for="i in item.children"
                 :item="i"
-                :key="i.path"
+                :key="i.name"
                 :isLeaf="true"
                 :basePath="resolvePath(item.path)"
             ></menu-item>

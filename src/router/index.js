@@ -50,7 +50,7 @@ const routes = [
                     import(
                         /*webpackChunkName: "list"*/ '@/page/banner/BannerDetail.vue'
                     ),
-                meta: { title: '海报列表' }
+                meta: { title: '海报详情' }
             },
             {
                 path: 'info',
@@ -59,6 +59,14 @@ const routes = [
                         /*webpackChunkName: "info"*/ '@/page/banner/BannerInfo.vue'
                     ),
                 meta: { title: '添加海报' }
+            },
+            {
+                path: 'down',
+                component: () =>
+                    import(
+                        /*webpackChunkName: "info"*/ '@/page/banner/BannerDown.vue'
+                    ),
+                meta: { title: '下载海报' }
             }
         ]
     },
@@ -90,7 +98,7 @@ const routes = [
 ]
 
 const router = new VueRouter({
-    mode: 'history',
+    // mode: 'history',
     // base: process.env.BASE_URL,
     routes
 })

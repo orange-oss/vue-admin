@@ -38,7 +38,7 @@
  * 1.菜单最多3层;item
  * 2.只有"叶子"节点才能跳转;
  * 3.所有的key都不能重复;
-// @param menuList → menus.js中定义的sidebarMenu,初始值为空
+ * @param menuList → menus.js中定义的sidebarMenu,初始值为空
  * @param isLeaf   → 判断是否是菜单中的叶子节点(即最后一个孩子)
  */
 

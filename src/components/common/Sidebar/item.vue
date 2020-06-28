@@ -1,6 +1,9 @@
 <template>
     <div>
-        <router-link :to="resolvePath(item.path)" v-if="!item.children">
+        <router-link
+            :to="resolvePath(item.path)"
+            v-if="!item.children && item.show"
+        >
             <el-menu-item :index="item.name">
                 <!-- 如果菜单栏中有icon就显示，没有就不显示 -->
                 <i :class="item.icon" v-if="item.icon"></i>
@@ -8,7 +11,7 @@
             </el-menu-item>
         </router-link>
 
-        <el-submenu :index="item.name" v-else>
+        <el-submenu :index="item.name" v-else-if="item.children && item.show">
             <template slot="title">
                 <i :class="item.icon" v-if="item.icon"></i>
                 <span>{{ item.name }}</span>

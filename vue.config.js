@@ -9,7 +9,8 @@ module.exports = {
     publicPath: './',
     // 打包路径
     outputDir: 'dist',
-    assetsDir: 'static',
+    assetsDir: './assets',
+    indexPath: 'index.html',
     filenameHashing: true,
     chainWebpack: config => {
         config.resolve.alias.set('@', resolve('src'))
@@ -59,6 +60,11 @@ module.exports = {
                     changeOrigin: false //是否跨域
                 }
             }
+        },
+        // 打包后的文件js加hash后缀
+        output: {
+            filename: 'js/[name]-[hash].js',
+            chunkFilename: `js/[name]-[chunkhash].js`
         }
     }
 }

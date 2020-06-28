@@ -35,10 +35,14 @@ export default {
     methods: {
         handlePicture() {
             downloadApi.download(this.uploadUrl).then(data => {
+                // const blob = new Blob([data], {
+                //     type:
+                //         'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8'
+                // }) //application/vnd.openxmlformats-officedocument.spreadsheetml.sheet这里表示xlsx类型
                 // data是请求url拿到的response是图片的二进制流 即blob
-                // getCaption是validates中定义的截取字符串的方法 将image/jpeg 截取成jpeg 图片格式
+                // getCaption是validates中定义的截取字符串的方法 将image/jpeg 截取成jpeg 图片格式               
                 const imageFormat = getCaption(data.type, '/')
-                let a = document.createElement('a') // 下载图片
+                const a = document.createElement('a') // 下载图片
                 a.href = window.URL.createObjectURL(data) // 图片地址
                 a.download = `${this.imageName}.${imageFormat}` // 图片名字
                 document.body.appendChild(a)
@@ -51,12 +55,13 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@imgWidth: 350px;
 .img-box {
-    width: 350px;
+    width: @imgWidth;
     height: 300px;
 }
 .btn-box {
-    width: 350px;
+    width: @imgWidth;
     line-height: 40px;
     display: flex;
     justify-content: space-between;

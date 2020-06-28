@@ -13,7 +13,7 @@ export function isExternal(path) {
  * @param tag {string} 指定的字符
  * @returns str {string} 截取后的字符串
  */
-export function getCaption(str,tag) {
+export function getCaption(str, tag) {
     const index = str.lastIndexOf(tag)
     str = str.substring(index + 1, str.length)
     return str

@@ -38,6 +38,7 @@
 
 <script>
 import loginApi from '@/api/login.js'
+import sidebarMenu from '@/config/menu.js'
 export default {
     name: 'Login',
     data() {
@@ -53,9 +54,19 @@ export default {
         loginSubmit() {
             const param = this.loginForm
             loginApi.login(param).then(data => {
+                // 按理说token userName  sidebarMenu 都是从后台拿回的数据 但是目前没有接口 暂时先写死
                 const token = '123456'
+                // 普通用户和高级用户两种角色
+                // 普通用户没有下载海报的功能
+                sidebarMenu[1].children[2].show = false
+                console.log(sidebarMenu);               
                 sessionStorage.setItem('token', token)
                 sessionStorage.setItem('userName', this.loginForm.userName)
+                sessionStorage.setItem(
+                    'sidebarMenu',
+                    JSON.stringify(sidebarMenu)
+                )
+                this.$store.dispatch('user/saveSidebarMenu', sidebarMenu)
                 this.$store.dispatch(
                     'user/saveUserName',
                     this.loginForm.userName
@@ -109,5 +120,4 @@ export default {
         border-radius: 5px;
     }
 }
-
 </style>

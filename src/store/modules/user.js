@@ -1,7 +1,8 @@
 import router from '@/router'
 const state = {
     userName: sessionStorage.getItem('userName') || [],
-    token: sessionStorage.getItem('token') || []
+    token: sessionStorage.getItem('token') || [],
+    sidebarMenu: JSON.parse(sessionStorage.getItem('sidebarMenu')) || [] // 侧边栏导航权限
 }
 
 const mutations = {
@@ -10,6 +11,9 @@ const mutations = {
     },
     SET_USERNAME: (state, userName) => {
         state.userName = userName
+    },
+    SET_SIDEBARMENU: (state, sidebarMenu) => {
+        state.sidebarMenu = sidebarMenu
     }
 }
 
@@ -19,6 +23,9 @@ const actions = {
     },
     saveUserName({ commit }, userName) {
         commit('SET_USERNAME', userName)
+    },
+    saveSidebarMenu({ commit }, sidebarMenu) {
+        commit('SET_SIDEBARMENU', sidebarMenu)
     },
     logOut({ commit }) {
         commit('SET_TOKEN', '')

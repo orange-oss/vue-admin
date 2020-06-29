@@ -1,6 +1,6 @@
 <template>
     <div class="head-box">
-        <span>欢迎您 , {{ userName }}</span>
+        <span>欢迎您 , {{ username }}</span>
         <i class="el-icon-user-solid"></i>
         <span class="sign-out" @click="logOut">退出</span>
     </div>
@@ -11,7 +11,7 @@ import { mapGetters } from 'vuex'
 export default {
     name: 'HeadLogo',
     computed: {
-        ...mapGetters(['userName']),
+        ...mapGetters(['username']),
     },
     methods: {
         logOut() {

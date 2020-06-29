@@ -26,7 +26,6 @@
  * @param isLeaf   → 判断是否是菜单中的叶子节点(即最后一个孩子)
  */
 import MenuItem from './item'
-// import sidebarMenu from '@/config/menu.js'
 import { mapGetters } from 'vuex'
 export default {
     name: 'Sidebar',
@@ -42,7 +41,6 @@ export default {
     computed: {
         ...mapGetters(['sidebarMenu']),
         list() {
-            console.log(this.sidebarMenu)
             if (!this.menuList && !this.isLeaf) {
                 return this.sidebarMenu
             }

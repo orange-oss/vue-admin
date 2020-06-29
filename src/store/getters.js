@@ -1,6 +1,6 @@
 const getters = {
     token: (state) => state.user.token,
-    userName: (state) => state.user.userName,
+    username: (state) => state.user.username,
     sidebarMenu: (state) => state.user.sidebarMenu,
 };
 export default getters;

@@ -2,7 +2,7 @@
     <div class="login-box">
         <img src="@/images/logo.jpg" alt="" class="logo" />
         <el-form :model="loginForm" status-icon ref="loginForm">
-            <el-form-item prop="userName" class="form-item">
+            <el-form-item prop="username" class="form-item">
                 <el-input
                     v-model="loginForm.username"
                     autocomplete="off"

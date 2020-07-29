@@ -4,7 +4,7 @@ Vue.use(VueRouter)
 
 const routes = [
     {
-        path: '/login',
+        path: '/',
         component: () =>
             import(/*webpackChunkName: "login"*/ '@/page/login/index.vue'),
         name: 'Login'
@@ -15,7 +15,7 @@ const routes = [
         path: '/',
         component: () =>
             import(/*webpackChunkName: "indexpage"*/ '@/layout/index.vue'),
-        redirect: '/home',
+        // redirect: '/home',
         children: [
             {
                 path: 'home',

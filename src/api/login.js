@@ -1,5 +1,7 @@
-import http from "./http.js";
+import http from './http.js'
 
 export default {
-    login: (params) => http.get("rank/getList", params),
-};
+    login(params = {}) {
+        return http.get('rank/getList', { params })
+    }
+}

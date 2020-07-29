@@ -97,7 +97,7 @@ export default {
         }
     },
     created() {
-        this.loadShopList();
+        this.loadShopList()
     },
     methods: {
         // 分页渲染接口
@@ -107,9 +107,11 @@ export default {
                 pageSize: this.pageCount
             }
             Object.assign(param, objParam)
-            shopApi.list(param).then(data => {
-                this.tableData = data.list
-                this.total = data.total
+            shopApi.list(param).then(resp => {
+                if (resp.status === 0) {
+                    this.tableData = resp.data.list
+                    this.total = resp.data.total
+                }
             })
         },
 

@@ -12,6 +12,7 @@ module.exports = {
     assetsDir: './assets',
     indexPath: 'index.html',
     filenameHashing: true,
+    productionSourceMap: false, // 是否在构建生产包时生成 sourceMap 文件，false将提高构建速度
     chainWebpack: config => {
         config.resolve.alias.set('@', resolve('src'))
         config.when(process.env.NODE_ENV !== 'DEV', config => {

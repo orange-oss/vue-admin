@@ -1,5 +1,7 @@
-import http from "./http.js";
+import http from './http.js'
 
 export default {
-    list: (params) => http.get("category/getCategoryEnd", params),
-};
+    list(params = {}) {
+        return http.get('category/getCategoryEnd', { params })
+    }
+}

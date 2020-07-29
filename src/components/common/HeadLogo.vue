@@ -23,7 +23,7 @@ export default {
 
 <style lang="less" scoped>
 @import '../../theme/base.less';
-.head-box {
+.head-box { 
     height: 60px;
     background-color: @headBarColor;
     display: flex;
